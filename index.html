@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Asset Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-indigo-600 text-white shadow-lg p-4 text-center">
+        <h1 class="text-xl font-bold">AI-Powered Asset Generator</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-2xl">
+            <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Enhanced AI Asset Generator</h1>
+            <p class="text-center text-gray-600 mb-8">
+                Create an image by describing the asset you want to generate. The backend will try to maintain a consistent style.
+            </p>
+
+            <!-- Input and Button Section -->
+            <div class="space-y-4">
+                <div>
+                    <label for="prompt" class="block text-sm font-medium text-gray-700 mb-2">Prompt:</label>
+                    <input type="text" id="prompt" placeholder="e.g., A futuristic spaceship floating in space, cartoon style"
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 transition duration-300 ease-in-out">
+                </div>
+
+                <button id="generateBtn"
+                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300 ease-in-out">
+                    Generate Image
+                </button>
+            </div>
+
+            <!-- Output Section -->
+            <div id="outputContainer" class="mt-8">
+                <div id="loadingIndicator" class="hidden text-center text-gray-500">
+                    <div class="flex items-center justify-center">
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Generating...
+                    </div>
+                </div>
+                <div id="imageContainer" class="hidden mt-4">
+                    <img id="generatedImage" src="" alt="Generated AI Asset" class="w-full h-auto rounded-lg shadow-md border border-gray-200">
+                </div>
+                <div id="errorMessage" class="hidden mt-4 bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg" role="alert">
+                    <p id="errorText" class="font-bold"></p>
+                    <p>Failed to generate the image. Please try a different prompt or check the console for details.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 text-gray-600 text-center p-4 text-sm mt-auto">
+        &copy; Made by Atinder Singh Hari
+    </footer>
+
+    <!-- Link to the separate JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
